@@ -1,11 +1,27 @@
+<script>
+
+import moment from 'moment';
+import { useI18n } from 'vue-i18n'
+import { computed } from 'vue';
+export default {
+    name: 'Customer',
+    props: ['customer'],
+    setup({ customer }) {
+        const { t } = useI18n();
+        const cellphoneformat = customer.cellphone.replace('6', '*').replace('7', '*'); 
+        const lastContactFormat = customer.last_contact?.last_contact_human_format;
+        const isVisited = computed(() => moment(customer.last_contact?.created_at).isBefore(moment().subtract(60, 'days')));
+
+        return { t, lastContactFormat, cellphoneformat, isVisited, customer }
+    }
+}
+</script>
 <template>
     <section class="card mb-4">
         <div class="card__header">
-          
-            <router-link class="client-name" :to="`/customer/${customer.id}`">
+            <p class="client-name">
                 {{ customer.name }}
-            </router-link>
-            
+            </p>
             <p class="client-email" v-if="customer.email">{{ customer.email }}</p>
         </div>
         <div class="card__body">
@@ -49,27 +65,6 @@
     </section>
 </template>
 
-<script>
-
-import moment from 'moment';
-import { useI18n } from 'vue-i18n'
-import { computed } from 'vue';
-export default {
-    name: 'Customer',
-    props: {
-        customer: { type: Object, required: true }
-    },
-    setup({ customer }) {
-        const { t } = useI18n();
-
-        const cellphoneformat = computed(() => customer.cellphone.replace('6', '*').replace('7', '*')); 
-        const lastContactFormat = computed(() => customer.last_contact?.last_contact_human_format);
-        const isVisited = computed(() => moment(customer.last_contact?.created_at).isBefore(moment().subtract(60, 'days')));
-
-        return { t, lastContactFormat, cellphoneformat, isVisited, customer }
-    }
-}
-</script>
 
 <style scoped lang="scss">
 @import '../../assets/css/helpers/functions/_color.scss';

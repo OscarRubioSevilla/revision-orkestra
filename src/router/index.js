@@ -11,12 +11,6 @@ const routes = [{
         name: 'Customers',
         component: () =>
             import ( /* webpackChunkName: "customers" */ '../views/Customers.vue')
-    },
-    {
-        path: '/customer/:id',
-        name: 'Customer',
-        component: () =>
-            import ( /* webpackChunkName: "customer" */ '../views/Customer.vue')
     }
 ]
 

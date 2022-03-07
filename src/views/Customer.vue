@@ -1,23 +1,24 @@
 <script>
-import { computed } from 'vue';
+import { computed, reactive } from 'vue';
 import { useRoute } from 'vue-router';
 import { useStore } from 'vuex';
 import Customer from '../components/customers/Customer.vue';
 
 export default {
     components: { Customer },
-    setup() {
+    async setup() {
         const route = useRoute();
         const store = useStore();
-        store.dispatch('fetchCustomer', route.params.id);
-
-        
+        const customer = computed(() => store.state.customer);
+        await store.dispatch('fetchCustomer', route.params.id);
         return { 
-            customer : computed(() => store.state.customer)
+            customer
         }
     }
 }
 </script>
 <template>
-    <customer :customer="customer" />
+<Suspense>
+    <Customer :customer="customer" />
+</Suspense>
 </template>
