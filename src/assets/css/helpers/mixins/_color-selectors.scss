@@ -1,0 +1,16 @@
+/// Generate colors values
+/// @name color-selectors
+/// @param {Map} $map [$colors] - Map with color values
+/// @param {String} $selector ['.cl'] - Selector to css class, .#{$selector}-#{$name-of-color}
+/// @param {String} $property ['color'] - CSS property
+@mixin color-selectors($map: $colors, $selector: 'cl', $property: 'color') {
+    @each $name,
+    $value in $map {
+        .#{$selector}-#{"" + $name} {
+            #{$property}: #{$value};
+        }
+        .#{$selector}-#{"" + $name}:hover {
+            #{$property}: #{$value};
+        }
+    }
+}

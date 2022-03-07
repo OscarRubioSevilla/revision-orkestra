@@ -1,0 +1,90 @@
+$motion-main: cubic-bezier(0.4, 0.0, 0.2, 1);
+$duration-main: .25s;
+$motion-exit: cubic-bezier(0.4, 0.0, 1, 1);
+$duration-exit: .2s;
+.v-enter-active,
+.v-leave-active {
+    transition: opacity .5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+    opacity: 0;
+}
+
+.fade-enter-active {
+    transition: opacity $duration-main;
+}
+
+.fade-leave-active {
+    transition: opacity $duration-exit;
+}
+
+.fade-enter,
+.fade-leave-to {
+    opacity: 0
+}
+
+.fade-in {
+    &-down-enter-active,
+    &-up-enter-active {
+        transition: all $duration-main $motion-main;
+    }
+    &-down-leave-active,
+    &-up-leave-active {
+        transition: all $duration-exit $motion-exit;
+    }
+    &-down-enter,
+    &-down-leave-to,
+    &-up-enter,
+    &-up-leave-to {
+        opacity: 0;
+    }
+    &-down-enter,
+    &-down-leave-to {
+        transform: translateY(-100%);
+    }
+    &-up-enter,
+    &-up-leave-to {
+        transform: translateY(100%);
+    }
+}
+
+.move-and-appear {
+    &-enter-active {
+        transition: 275ms ease-out;
+    }
+    &-leave-active {
+        transition: 165ms ease-in;
+    }
+    &-enter,
+    &-leave-to {
+        transform: translateY(5%);
+        opacity: 0;
+    }
+}
+
+.move-and-appear-list {
+    &-enter-active {
+        transition: 150ms ease-out;
+    }
+    &-leave-active {
+        transition: 75ms ease-in;
+    }
+    &-enter,
+    &-leave-to {
+        transform: translateY(2rem);
+        opacity: 0;
+    }
+}
+
+.slide-to-left {
+    &-enter-active,
+    &-leave-active {
+        transition: 200ms ease-in-out;
+    }
+    &-enter,
+    &-leave-to {
+        transform: translateX(100%);
+    }
+}

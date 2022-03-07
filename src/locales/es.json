@@ -1,0 +1,16 @@
+{
+    "cellphone": "Celular",
+    "enter_name_or_cellphone": "Ingresa nombre o celular",
+    "lang_en": "English",
+    "lang_es": "Español",
+    "lang_cn": "中国人",
+    "highest_ticket_amount": "Ticket mas alto",
+    "message": "Hola i18n !!",
+    "search": "Buscar",
+    "no_purchase_period": "Periodo sin compra",
+    "last_contact": "Último contacto",
+    "customers": "Clientes",
+    "home": "Inicio",
+    "no_found_results": "No existen resultados",
+    "enjoy_searching": "Disfruta la busqueda..."
+}

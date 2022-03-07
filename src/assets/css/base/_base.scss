@@ -1,0 +1,26 @@
+html,
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+}
+
+$gris: #BCC4CA;
+$gris-fondo: #E7ECF0;
+p {
+    margin: .5em;
+}
+
+.container-main {
+    padding: 1em .5em;
+    background-color: $gris-fondo;
+    min-height: 100vh;
+}
+
+.separador {
+    background: #a6afb9;
+    height: 0.05em;
+    border: 0;
+}
